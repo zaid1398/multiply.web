@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiple of 3 Numbers</title>
+    <style>
+        body{
+    background-color: pink;        
+    margin-top: 40px;
+    background: linear-gradient(to top right, whitesmoke 20% pink 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        }
+        input{
+            height: 7vh;
+            width: 20vw;
+            margin-bottom: 3px solid rgb(20, 20, 20);
+            text-align: center;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            font-size: medium;
+            font-weight: bold;
+            padding: 1em;
+            margin-left: -18px;
+            border: 1px solid black;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: maroon;
+        }
+        #opt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            color: indianred;
+            display: none;
+            margin-top: 30px;
+        }
+        h2{
+            color: rgb(255, 0, 64);
+        }
+    </style>
+</head>
+<body>
+    <h2>Nested Func!!</h2>
+    <div>
+    <input type="number" id="a" placeholder="enter value of a">
+    <input type="number" id="b" placeholder="enter value of b">
+    <input type="number" id="c"placeholder="enter value of c">
+    <button>multiply</button>
+</div>
+<div id="opt"></div>
+    <script>
+            function multiply(a){
+            return  function xyz(b){
+                  return  function pqr(c){
+                       return a*b*c;
+                   }
+               }
+           }
+           document.querySelector('button').addEventListener('click',()=>{
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let c = document.getElementById('c').value;
+             
+            let x= multiply(a)(b)(c);
+            console.log(x);
+            let h1 = document.createElement('h1');
+            h1.innerText=x;
+            document.getElementById('opt').appendChild(h1);
+            document.getElementById('opt').style.display="flex";
+            })
+    </script>
+</body>
+</html>
